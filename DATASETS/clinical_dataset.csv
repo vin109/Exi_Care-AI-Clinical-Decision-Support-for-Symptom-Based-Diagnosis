@@ -1,0 +1,21 @@
+Disease,Description,Symptoms,Precautions,Physical_Exam,Pathognomonic_Sign
+Psoriasis,Chronic autoimmune skin disorder causing plaques,itching red scaly skin,moisturize avoid stress consult doctor,plaques on elbows and knees,Auspitz sign
+Jaundice,Yellow discoloration due to bilirubin buildup,yellow skin dark urine fatigue,hydration avoid alcohol consult doctor,scleral icterus,yellow sclera
+Pneumonia,Lung infection causing inflammation,fever cough chest pain,rest hydration antibiotics,crackles on auscultation,consolidation on chest xray
+Migraine,Neurological disorder causing severe headache,unilateral headache nausea light sensitivity,rest dark room avoid triggers,normal exam during attack,aura
+Diabetes,Metabolic disorder with high blood sugar,frequent urination thirst fatigue,control diet exercise insulin,polyuria polydipsia,hyperglycemia
+Hypertension,Chronic high blood pressure condition,headache dizziness nosebleeds,reduce salt exercise monitor bp,elevated blood pressure readings,persistent hypertension
+Asthma,Chronic airway inflammation causing breathing difficulty,wheezing shortness of breath cough,avoid triggers inhaler use,wheezing on auscultation,reversible airway obstruction
+Tuberculosis,Bacterial infection affecting lungs,fever weight loss night sweats,complete antibiotic course isolate patient,crackles hemoptysis,cavitary lesions in lung
+Dengue,Viral infection transmitted by mosquitoes,fever rash joint pain,hydration avoid NSAIDs,low platelet count,positive NS1 antigen
+Malaria,Parasitic infection causing cyclic fever,fever chills sweating,antimalarial drugs mosquito protection,splenomegaly,parasites in blood smear
+Anemia,Low hemoglobin causing reduced oxygen delivery,fatigue pallor weakness,iron rich diet supplements,pale conjunctiva,low hemoglobin
+Appendicitis,Inflammation of appendix causing abdominal pain,right lower abdominal pain nausea,surgery urgent care,tenderness at McBurney point,McBurney sign
+Gastritis,Inflammation of stomach lining,epigastric pain nausea bloating,avoid spicy food antacids,epigastric tenderness,gastric mucosal inflammation
+Bronchitis,Inflammation of bronchial tubes,cough mucus fatigue,rest fluids avoid smoke,rhonchi on auscultation,productive cough
+COVID-19,Viral respiratory illness caused by SARS-CoV-2,fever cough loss of smell,isolation hydration mask use,low oxygen saturation,positive PCR test
+Allergic Rhinitis,Allergic reaction affecting nasal passages,sneezing runny nose itching,avoid allergens antihistamines,nasal mucosa swelling,allergic salute
+Hypothyroidism,Low thyroid hormone levels,fatigue weight gain cold intolerance,thyroid hormone replacement,dry skin slow reflexes,elevated TSH
+Hyperthyroidism,Excess thyroid hormone production,weight loss palpitations sweating,antithyroid drugs beta blockers,goiter tremors,low TSH
+Kidney Stones,Hard deposits in kidneys causing pain,flank pain blood in urine,hydration pain management,costovertebral angle tenderness,crystals in urine
+Stroke,Brain damage due to interrupted blood supply,weakness speech difficulty confusion,emergency care control BP,facial droop hemiplegia,FAST signs
