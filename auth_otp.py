@@ -4,25 +4,30 @@ import random
 import time
 import os
 
-FAST2SMS_API_KEY = os.environ.get("FAST2SMS_API_KEY", "")
+# Read from Streamlit secrets first, fallback to env var
+def _get_api_key():
+    try:
+        return st.secrets["FAST2SMS_API_KEY"]
+    except Exception:
+        return os.environ.get("FAST2SMS_API_KEY", "")
 
 def send_otp_fast2sms(phone: str, otp: str) -> bool:
-    """Send OTP via Fast2SMS using the correct OTP route."""
+    """Send OTP via Fast2SMS using correct OTP route (GET method)."""
+    api_key = _get_api_key()
     url = "https://www.fast2sms.com/dev/bulkV2"
-    
-    # GET method with query params — this is what Fast2SMS OTP route requires
     params = {
-        "authorization": FAST2SMS_API_KEY,
-        "variables_values": otp,   # just the OTP number
-        "route": "otp",            # Fast2SMS sends: "Your OTP: 123456"
+        "authorization": api_key,
+        "variables_values": otp,   # Fast2SMS sends: "Your OTP: {otp}"
+        "route": "otp",
         "numbers": phone,
     }
-    headers = {
-        "cache-control": "no-cache"
-    }
+    headers = {"cache-control": "no-cache"}
     try:
         response = requests.get(url, params=params, headers=headers, timeout=10)
         data = response.json()
+        # Show exact Fast2SMS response for debugging
+        if not data.get("return", False):
+            st.error(f"Fast2SMS response: {data}")
         return data.get("return", False)
     except Exception as e:
         st.error(f"SMS error: {e}")
@@ -218,7 +223,7 @@ section[data-testid="stSidebar"] { display: none !important; }
             )
 
             if st.button("📲 Send OTP"):
-                if not FAST2SMS_API_KEY:
+                if not _get_api_key():
                     st.error("❌ FAST2SMS_API_KEY not configured. Add it to Streamlit secrets.")
                 elif len(phone) != 10 or not phone.isdigit():
                     st.error("❌ Please enter a valid 10-digit mobile number.")
