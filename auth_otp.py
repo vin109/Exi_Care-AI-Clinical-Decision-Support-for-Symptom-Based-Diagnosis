@@ -7,22 +7,21 @@ import os
 FAST2SMS_API_KEY = os.environ.get("FAST2SMS_API_KEY", "")
 
 def send_otp_fast2sms(phone: str, otp: str) -> bool:
-    """Send OTP via Fast2SMS DLT-free route."""
+    """Send OTP via Fast2SMS using the correct OTP route."""
     url = "https://www.fast2sms.com/dev/bulkV2"
-    payload = {
-        "route": "q",          # quick transactional route
-        "message": f"Your EXiCare AI verification code is {otp}. Valid for 5 minutes. Do not share.",
-        "language": "english",
-        "flash": 0,
+    
+    # GET method with query params — this is what Fast2SMS OTP route requires
+    params = {
+        "authorization": FAST2SMS_API_KEY,
+        "variables_values": otp,   # just the OTP number
+        "route": "otp",            # Fast2SMS sends: "Your OTP: 123456"
         "numbers": phone,
     }
     headers = {
-        "authorization": FAST2SMS_API_KEY,
-        "Content-Type": "application/x-www-form-urlencoded",
-        "cache-control": "no-cache",
+        "cache-control": "no-cache"
     }
     try:
-        response = requests.post(url, data=payload, headers=headers, timeout=10)
+        response = requests.get(url, params=params, headers=headers, timeout=10)
         data = response.json()
         return data.get("return", False)
     except Exception as e:
