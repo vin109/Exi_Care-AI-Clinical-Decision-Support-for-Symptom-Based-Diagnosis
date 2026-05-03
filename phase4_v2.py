@@ -9,15 +9,8 @@ from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import inch
 
 from phase3_v2 import get_diagnosis_v2, SymptomRequest
-from auth_otp import otp_login_page   # ← OTP gate
 
 st.set_page_config(page_title="EXiCare AI — Clinical Decision Support", layout="wide", page_icon="🩺")
-
-# ══════════════════════════════════════════════════════
-#  OTP GATE  — nothing below runs until verified
-# ══════════════════════════════════════════════════════
-if not otp_login_page():
-    st.stop()
 
 # ══════════════════════════════════════════════════════
 #  GLOBAL STYLES  (only shown after login)
@@ -301,12 +294,6 @@ with st.sidebar:
     weight     = st.number_input("Weight (kg)", 1, 200, 60)
 
     st.markdown("---")
-
-    # Logout button
-    if st.button("🚪 Logout"):
-        for key in list(st.session_state.keys()):
-            del st.session_state[key]
-        st.rerun()
 
     st.markdown("""
 <div style="font-family:'Inter',sans-serif;font-size:0.72rem;color:#334155;line-height:1.6;padding:0 2px;">
